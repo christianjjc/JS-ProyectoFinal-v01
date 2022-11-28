@@ -1,10 +1,21 @@
 
 // algoritmos para preguntar nombre y edad.
 
+let esNombre = false;
 let nombre = prompt(`¡Hola! ¿cuál es tu nombre?`);
+//nombre == null || nombre.trim() == "" || nombre == undefined
+while (esNombre == false) {
+    if (nombre == null || nombre.trim() == "" || nombre == undefined) {
+        nombre = prompt(`Por favor debe ingresar su nombre...`);
+    } else {
 
-while (nombre == null || nombre.trim() == "" || nombre == undefined) {
-    nombre = prompt(`Por favor, ingresar su nombre...`);
+        if (isNaN(nombre)) {
+            esNombre=true;
+        } else {
+            nombre = prompt(`Por favor, su nombre no puede ser un número...`);
+        };
+    }
+
 };
 // líneas para desarrollo y pruebas
 console.log(nombre);
